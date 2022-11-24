@@ -2,7 +2,7 @@ import { AccountBalanceOutlined, KeyboardArrowUp, MonetizationOnOutlined, Person
 import React from 'react'
 import "./widgets.scss"
 
-const Widgets = ({type }) => {
+const Widgets = ({type, num }) => {
   let data;
 
 
@@ -12,6 +12,7 @@ const Widgets = ({type }) => {
         title: "USERS",
         isMoney: false,
         link: "See all users",
+        count: num,
         icon: (<PersonOutlined className='icon' style={{ backgroundColor: "rgba(255,0,0,0.2)", color: 'crimson' }} />)
       }
       break;
@@ -20,6 +21,7 @@ const Widgets = ({type }) => {
         title: "ORDERS",
         isMoney: false,
         link: "View all orders",
+        count: num,
         icon: (<ShoppingCartOutlined className='icon' style={{ backgroundColor: "rgba(218,165,32,0.2)", color: 'goldenrod' }}  />)
       }
       break;
@@ -27,6 +29,7 @@ const Widgets = ({type }) => {
       data = {
         title: "EARNINGS",
         isMoney: true,
+        count: num,
         link: "View net earnings",
         icon: (<MonetizationOnOutlined className='icon' style={{ backgroundColor: "rgba(0,128,0,0.2)", color: 'green' }}  />)
       }
@@ -35,6 +38,7 @@ const Widgets = ({type }) => {
       data = {
         title: "BALANCE",
         isMoney: true,
+        count: num,
         link: "See details",
         icon: (<AccountBalanceOutlined className='icon' style={{ backgroundColor: "rgba(86,81,229,0.2)", color: '#5651e5' }}  />)
       }
@@ -49,7 +53,7 @@ const Widgets = ({type }) => {
       <div className="widget">
         <div className="left">
           <span className="title"> { data.title } </span>
-          <span className="counter"> { data.isMoney && "$"} 21312 </span>
+          <span className="counter"> { data.isMoney && `$`} {data.count}  </span>
           <span className="link"> { data.link } </span>
         </div>
         <div className="right">

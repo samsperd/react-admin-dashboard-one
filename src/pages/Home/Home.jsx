@@ -1,4 +1,6 @@
 import React from 'react'
+import Chart from '../../components/Chart/Chart'
+import Featured from '../../components/Featured/Featured'
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Widgets from '../../components/Widgets/Widgets'
@@ -11,10 +13,14 @@ const Home = () => {
       <div className="homeContainer">
         <Navbar />
         <div className="widgets">
-          <Widgets type="user" />
-          <Widgets type="order" />
-          <Widgets type="earnings" />
-          <Widgets type="balance" />
+          <Widgets type="user" num={"1500"} />
+          <Widgets type="order" num={"21312"} />
+          <Widgets type="earnings" num={"43000"} />
+          <Widgets type="balance" num={"60000"} />
+        </div>
+        <div className="charts">
+          <Featured />
+          <Chart />
         </div>
       </div>
     </div>
