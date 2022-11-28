@@ -2,10 +2,10 @@ import React from 'react'
 import Datatable from '../../components/Datatable/Datatable'
 import './list.scss'
 
-const List = () => {
+const List = ({ type }) => {
   return (
     <div className="listContainer">
-      <Datatable />
+      <Datatable type={ type } />
     </div>
   )
 }

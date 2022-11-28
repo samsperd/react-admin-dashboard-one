@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './sidebar.scss'
 import { AccountCircle, BookOutlined, Close, Dashboard, HealthAndSafetyOutlined, InsertChart, LocalShipping, LogoutOutlined, NotificationsOutlined, PersonOutline, ReceiptLong, Settings, Store } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
+import { DarkModeContext } from '../../context/darkModeContext'
 
 
 const Sidebar = ({ toggle, toggler }) => {
+
+    const { dispatch } = useContext(DarkModeContext)
+
+
   return (
     <div className={toggle ? 'sidebar activeNav': 'sidebar'}>
         <div className="top">
-            <span className="logo">
-                SammyAdmin
-            </span>
+            <Link to='/'>
+                <span className="logo">
+                    SammyAdmin
+                </span>
+
+            </Link>
             <span className='close'>
                 <Close onClick={() => toggler(false)} className='icon' />
             </span>
@@ -23,32 +32,39 @@ const Sidebar = ({ toggle, toggler }) => {
                     MAIN
                 </p>
 
-                
-                <li>
-                    <Dashboard className='icon' />
-                    <span>
-                        Dashboard
-                    </span>
-                </li>
+                <Link to="/">
+
+                    <li>
+                        <Dashboard className='icon' />
+                        <span>
+                            Dashboard
+                        </span>
+                    </li>
+                </Link>
 
 
                 <p className="title">
                     LIST
                 </p>
 
+                <Link to={"/users"}>
 
-                <li>
-                    <PersonOutline className='icon' />
-                    <span>
-                        Users
-                    </span>
-                </li>
-                <li>
-                    <Store className='icon' />
-                    <span>
-                        Products
-                    </span>
-                </li>
+                    <li>
+                        <PersonOutline className='icon' />
+                        <span>
+                            Users
+                        </span>
+                    </li>
+                </Link>
+                <Link to="/products">
+                    <li>
+                        <Store className='icon' />
+                        <span>
+                            Products
+                        </span>
+                    </li>
+
+                </Link>
                 <li>
                     <ReceiptLong className='icon' />
                     <span>
@@ -120,8 +136,8 @@ const Sidebar = ({ toggle, toggler }) => {
             </ul>
         </div>
         <div className="bottom">
-            <div className="colorOption"></div>
-            <div className="colorOption"></div>
+            <div className="colorOption" onClick={() => dispatch({ type: "LIGHT" })}></div>
+            <div className="colorOption" onClick={() => dispatch({ type: "DARK" })}></div>
         </div>
     </div>
   )

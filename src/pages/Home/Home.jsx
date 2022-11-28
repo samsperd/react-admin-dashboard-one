@@ -1,8 +1,6 @@
 import React from 'react'
 import Chart from '../../components/Chart/Chart'
 import Featured from '../../components/Featured/Featured'
-import Navbar from '../../components/Navbar/Navbar'
-import Sidebar from '../../components/Sidebar/Sidebar'
 import Table from '../../components/Table/Table'
 import Widgets from '../../components/Widgets/Widgets'
 import './home.scss'

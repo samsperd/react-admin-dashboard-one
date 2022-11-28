@@ -64,14 +64,9 @@ const rows = [
     },
   ];
 const Table = () => {
-
-
-
-
   return (
-    <div className='table'>
 
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className='table'>
       <Shelf sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -108,7 +103,6 @@ const Table = () => {
         </TableBody>
       </Shelf>
     </TableContainer>    
-    </div>
   )
 }
 
