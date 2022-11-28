@@ -1,3 +1,5 @@
+@import './widgets-media-queries';
+
 .widget {
     display: flex;
     flex: 1;
@@ -8,11 +10,16 @@
     border-radius: 7px;
     height: 120px;
 
-
+    
+    
     .left, .right {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        
+        @include tablet {
+            height: 100px !important;
+        }
 
         .title {
             font-weight: bold;

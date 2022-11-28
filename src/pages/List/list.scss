@@ -1,8 +1,8 @@
-.list {
-    display: flex;
-    width: 100%;
+@import "../../styles/global-media-queries";
 
-    .listContainer {
-        flex: 5;
-    }
+
+.listContainer {
+    width: 100%;
+    
+    
 }

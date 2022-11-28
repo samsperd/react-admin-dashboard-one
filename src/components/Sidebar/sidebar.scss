@@ -1,8 +1,18 @@
+@import "../../styles/global-media-queries";
+
 .sidebar {
     flex: 1;
     border-right: 0.5px solid #f3f3f3;
     min-height: 100vh;
     background: white;
+
+    @include tablet {
+        display: none;
+
+        &.activeNav {
+            display: block;
+        }
+    }
 
 
     .top {
@@ -11,10 +21,26 @@
         align-items: center;
         justify-content: center;
 
+        .close {
+            display: none;
+        }
+
+        @include tablet {
+            justify-content: space-around;
+
+            .close {
+                display: block;
+            }
+        }    
+
         .logo {
             font-size: 20px;
             font-weight: bold;
             color: #5651e5;
+        }
+
+        .close {
+
         }
     }
     

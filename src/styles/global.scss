@@ -1,0 +1,25 @@
+@import "./global-media-queries";
+
+.App {
+    display: flex;
+    width: 100%;
+    @include tablet {
+        flex-direction: column;
+
+    }
+
+    .AppContainer {
+        flex: 4;
+
+        &.toggleMain {
+            display: none;
+            // margin-right: -5000px;
+        }
+
+
+        @include tablet {
+            flex: none;
+            width: 100%;
+        }
+    }
+}

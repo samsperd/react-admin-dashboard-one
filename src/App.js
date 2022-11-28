@@ -8,28 +8,43 @@ import Login from "./pages/Login/Login";
 import List from "./pages/List/List";
 import New from "./pages/New/New";
 import Single from "./pages/Single/Single";
+import './styles/global.scss'
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
+import { useState } from 'react';
 
 function App() {
+
+  const [toggleNav, setToggleNav] = useState(false)
+
+  console.log(toggleNav);
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            <Route index  element={<Home />} />
-            <Route path="login"  element={<Login />} />
-            <Route path="users">
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New />} />
+      <Sidebar toggle={toggleNav}  toggler={setToggleNav} />
+
+      <div className={toggleNav ? 'AppContainer toggleMain' : 'AppContainer'}>
+        <Navbar toggle={setToggleNav} toggled={toggleNav} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/">
+              <Route index  element={<Home />} />
+              <Route path="login"  element={<Login />} />
+              <Route path="users">
+                <Route index element={<List />} />
+                <Route path=":userId" element={<Single />} />
+                <Route path="new" element={<New />} />
+              </Route>
+              <Route path="products">
+                <Route index element={<List />} />
+                <Route path=":userId" element={<Single />} />
+                <Route path="new" element={<New />} />
+              </Route>
             </Route>
-            <Route path="products">
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New />} />
-            </Route>
-          </Route>
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+
+      </div>
     </div>
   );
 }

@@ -1,14 +1,17 @@
 import React from 'react'
 import './sidebar.scss'
-import { AccountCircle, BookOutlined, Dashboard, HealthAndSafetyOutlined, InsertChart, LocalShipping, LogoutOutlined, NotificationsOutlined, PersonOutline, ReceiptLong, Settings, Store } from '@mui/icons-material'
+import { AccountCircle, BookOutlined, Close, Dashboard, HealthAndSafetyOutlined, InsertChart, LocalShipping, LogoutOutlined, NotificationsOutlined, PersonOutline, ReceiptLong, Settings, Store } from '@mui/icons-material'
 
 
-const Sidebar = () => {
+const Sidebar = ({ toggle, toggler }) => {
   return (
-    <div className='sidebar'>
+    <div className={toggle ? 'sidebar activeNav': 'sidebar'}>
         <div className="top">
             <span className="logo">
                 SammyAdmin
+            </span>
+            <span className='close'>
+                <Close onClick={() => toggler(false)} className='icon' />
             </span>
         </div>
         <hr />

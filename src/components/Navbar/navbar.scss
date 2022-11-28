@@ -1,3 +1,5 @@
+@import "./navbar-media-queries";
+
 .navbar {
     height: 55px;
     border-bottom: 0.5px solid rgb(231, 228, 228);
@@ -5,13 +7,30 @@
     align-items: center;
     font-size: 14px;
     color: #555;
-
+    
     .wrapper {
         display: flex;
         width: 100%;
         padding: 20px;
         align-items: center;
         justify-content: space-between;
+
+        &.shoe, .shoe {
+            display: none;
+            
+            .icon {
+                
+                font-size: 20px;
+            }
+            
+            @include tablet {
+                display: flex;
+                gap: 1px;
+                align-items: center;
+            }
+            
+        }
+
 
         .search {
             display: flex;
@@ -20,6 +39,10 @@
             padding: 4px 10px;
             border-radius: 5px;
             font-size: 4px;
+
+            @include tablet {
+                display: none;
+            }
 
             input {
                 border: none;
@@ -35,13 +58,22 @@
         .items {
             display: flex;
             align-items: center;
-            
+
+
             .item {
                 display: flex;
                 gap: 1px;
                 align-items: center;
                 margin-right: 20px;
                 position: relative;
+
+
+                &.boot {
+                    @include tablet {
+                        display: none;
+                    }
+                            
+                }
 
                 .icon {
                     font-size: 20px;
